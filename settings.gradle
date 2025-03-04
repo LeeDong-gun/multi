@@ -7,4 +7,5 @@ include 'module-community'
 include 'module-order-payment-bill'
 include 'alert'
 include 'web'
+include 'module-log'
 
