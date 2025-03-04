@@ -4,7 +4,7 @@ import com.sparta.common.ApiResponse;
 import com.sparta.domain.order.dto.requestDto.OrderCreateRequestDto;
 import com.sparta.domain.order.dto.responseDto.OrderResponseDto;
 import com.sparta.domain.order.service.OrderServiceImpl;
-import com.sparta.levelup_backend.config.CustomUserDetails;
+import com.sparta.config.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;

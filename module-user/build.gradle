@@ -12,7 +12,24 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 
+    // Redis
+    implementation "org.springframework.boot:spring-boot-starter-data-redis"
+    implementation 'org.redisson:redisson-spring-boot-starter:3.23.1'
+
+    // Webclient
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // github
+    implementation "io.github.cdimascio:dotenv-java:3.0.0"
+
+    // JSON 관련 라이브러리
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation 'com.google.code.gson:gson'
+
+    implementation project(':alert')
     implementation project(':module-common')
 }
 
