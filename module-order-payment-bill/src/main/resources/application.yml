@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/order
+    username: ${LOCAL_DB_USERNAME}
+    password: ${LOCAL_DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  data:
+    redis:
+      host: ${LOCAL_REDIS_HOST}
+      port: ${REDIS_PORT}
+      password: ${REDIS_PASSWORD}
+
+toss:
+  client:
+    key: ${TOSS_CLIENT_KEY}
+  secret:
+    key: ${TOSS_SECRET_KEY}
+  success:
+    Url: http://localhost:8080/payment/success.html
+  fail:
+    Url: http://localhost:8080/fail.html
