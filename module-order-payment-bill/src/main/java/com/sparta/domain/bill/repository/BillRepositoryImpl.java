@@ -3,7 +3,7 @@ package com.sparta.domain.bill.repository;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.sparta.levelup_backend.domain.bill.entity.BillEntity;
+import com.sparta.domain.bill.entity.BillEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-import static com.sparta.levelup_backend.domain.bill.entity.QBillEntity.billEntity;
+import static com.sparta.domain.bill.entity.QBillEntity.billEntity;
 
 @Repository
 @RequiredArgsConstructor

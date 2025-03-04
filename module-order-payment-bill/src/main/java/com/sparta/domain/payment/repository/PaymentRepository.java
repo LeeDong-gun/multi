@@ -1,7 +1,7 @@
 package com.sparta.domain.payment.repository;
 
-import com.sparta.levelup_backend.domain.order.entity.OrderEntity;
-import com.sparta.levelup_backend.domain.payment.entity.PaymentEntity;
+import com.sparta.domain.order.entity.OrderEntity;
+import com.sparta.domain.payment.entity.PaymentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

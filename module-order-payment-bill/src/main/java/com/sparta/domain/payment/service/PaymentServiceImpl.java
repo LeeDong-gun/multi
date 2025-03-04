@@ -1,16 +1,16 @@
 package com.sparta.domain.payment.service;
 
-import com.sparta.levelup_backend.config.CustomUserDetails;
-import com.sparta.levelup_backend.config.TossPaymentConfig;
-import com.sparta.levelup_backend.domain.order.entity.OrderEntity;
-import com.sparta.levelup_backend.domain.order.repository.OrderRepository;
-import com.sparta.levelup_backend.domain.payment.dto.request.CancelPaymentRequestDto;
-import com.sparta.levelup_backend.domain.payment.dto.response.CancelResponseDto;
-import com.sparta.levelup_backend.domain.payment.dto.response.PaymentResponseDto;
-import com.sparta.levelup_backend.domain.payment.entity.PaymentEntity;
-import com.sparta.levelup_backend.domain.payment.repository.PaymentRepository;
-import com.sparta.levelup_backend.exception.common.*;
-import com.sparta.levelup_backend.utill.OrderStatus;
+import com.sparta.config.CustomUserDetails;
+import com.sparta.config.TossPaymentConfig;
+import com.sparta.domain.order.entity.OrderEntity;
+import com.sparta.domain.order.repository.OrderRepository;
+import com.sparta.domain.payment.dto.request.CancelPaymentRequestDto;
+import com.sparta.domain.payment.dto.response.CancelResponseDto;
+import com.sparta.domain.payment.dto.response.PaymentResponseDto;
+import com.sparta.domain.payment.entity.PaymentEntity;
+import com.sparta.domain.payment.repository.PaymentRepository;
+import com.sparta.exception.common.*;
+import com.sparta.utill.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
-import static com.sparta.levelup_backend.exception.common.ErrorCode.*;
+import static com.sparta.exception.common.ErrorCode.*;
 
 @Slf4j
 @Service

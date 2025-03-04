@@ -1,8 +1,8 @@
 package com.sparta.domain.bill.service;
 
 import com.google.gson.Gson;
-import com.sparta.levelup_backend.domain.bill.dto.responseDto.BillStatusMessageDto;
-import com.sparta.levelup_backend.utill.BillStatus;
+import com.sparta.domain.bill.dto.responseDto.BillStatusMessageDto;
+import com.sparta.utill.BillStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.connection.Message;

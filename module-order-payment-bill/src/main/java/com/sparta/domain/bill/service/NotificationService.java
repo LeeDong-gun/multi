@@ -1,6 +1,6 @@
 package com.sparta.domain.bill.service;
 
-import com.sparta.levelup_backend.domain.bill.dto.responseDto.BillStatusMessageDto;
+import com.sparta.domain.bill.dto.responseDto.BillStatusMessageDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

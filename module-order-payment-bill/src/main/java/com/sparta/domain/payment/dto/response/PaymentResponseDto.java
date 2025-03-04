@@ -1,6 +1,6 @@
 package com.sparta.domain.payment.dto.response;
 
-import com.sparta.levelup_backend.domain.payment.entity.PaymentEntity;
+import com.sparta.domain.payment.entity.PaymentEntity;
 import lombok.Getter;
 import lombok.Setter;
 

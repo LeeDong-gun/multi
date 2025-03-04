@@ -1,6 +1,6 @@
 package com.sparta.domain.bill.repository;
 
-import com.sparta.levelup_backend.domain.bill.entity.BillEntity;
+import com.sparta.domain.bill.entity.BillEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

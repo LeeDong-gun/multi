@@ -1,23 +1,23 @@
 package com.sparta.domain.bill.service;
 
-import com.sparta.levelup_backend.domain.bill.dto.responseDto.BillResponseDto;
-import com.sparta.levelup_backend.domain.bill.entity.BillEntity;
-import com.sparta.levelup_backend.domain.bill.repository.BillRepository;
-import com.sparta.levelup_backend.domain.order.entity.OrderEntity;
-import com.sparta.levelup_backend.domain.order.repository.OrderRepository;
-import com.sparta.levelup_backend.domain.user.entity.UserEntity;
-import com.sparta.levelup_backend.domain.user.repository.UserRepository;
-import com.sparta.levelup_backend.exception.common.DuplicateException;
-import com.sparta.levelup_backend.exception.common.ErrorCode;
-import com.sparta.levelup_backend.exception.common.ForbiddenException;
-import com.sparta.levelup_backend.exception.common.NotFoundException;
+import com.sparta.domain.bill.dto.responseDto.BillResponseDto;
+import com.sparta.domain.bill.entity.BillEntity;
+import com.sparta.domain.bill.repository.BillRepository;
+import com.sparta.domain.order.entity.OrderEntity;
+import com.sparta.domain.order.repository.OrderRepository;
+import com.sparta.domain.user.entity.UserEntity;
+import com.sparta.domain.user.repository.UserRepository;
+import com.sparta.exception.common.DuplicateException;
+import com.sparta.exception.common.ErrorCode;
+import com.sparta.exception.common.ForbiddenException;
+import com.sparta.exception.common.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import static com.sparta.levelup_backend.utill.BillStatus.*;
+import static com.sparta.utill.BillStatus.*;
 
 @Service
 @RequiredArgsConstructor

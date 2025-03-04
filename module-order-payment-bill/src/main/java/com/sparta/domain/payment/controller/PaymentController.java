@@ -1,18 +1,18 @@
 package com.sparta.domain.payment.controller;
 
-import com.sparta.levelup_backend.domain.bill.entity.BillEntity;
-import com.sparta.levelup_backend.domain.bill.repository.BillRepository;
-import com.sparta.levelup_backend.domain.bill.service.BillEventPubService;
-import com.sparta.levelup_backend.domain.bill.service.BillServiceImplV2;
-import com.sparta.levelup_backend.domain.payment.dto.request.CancelPaymentRequestDto;
-import com.sparta.levelup_backend.domain.payment.entity.PaymentEntity;
-import com.sparta.levelup_backend.domain.payment.repository.PaymentRepository;
-import com.sparta.levelup_backend.domain.product.entity.ProductEntity;
-import com.sparta.levelup_backend.domain.product.service.ProductServiceImpl;
-import com.sparta.levelup_backend.exception.common.LockException;
-import com.sparta.levelup_backend.exception.common.NotFoundException;
-import com.sparta.levelup_backend.exception.common.PaymentException;
-import com.sparta.levelup_backend.utill.OrderStatus;
+import com.sparta.domain.bill.entity.BillEntity;
+import com.sparta.domain.bill.repository.BillRepository;
+import com.sparta.domain.bill.service.BillEventPubService;
+import com.sparta.domain.bill.service.BillServiceImplV2;
+import com.sparta.domain.payment.dto.request.CancelPaymentRequestDto;
+import com.sparta.domain.payment.entity.PaymentEntity;
+import com.sparta.domain.payment.repository.PaymentRepository;
+import com.sparta.domain.product.entity.ProductEntity;
+import com.sparta.domain.product.service.ProductServiceImpl;
+import com.sparta.exception.common.LockException;
+import com.sparta.exception.common.NotFoundException;
+import com.sparta.exception.common.PaymentException;
+import com.sparta.utill.OrderStatus;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +36,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.concurrent.TimeUnit;
 
-import static com.sparta.levelup_backend.exception.common.ErrorCode.*;
+import static com.sparta.exception.common.ErrorCode.*;
 
 @Slf4j
 @Controller
