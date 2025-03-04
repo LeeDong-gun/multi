@@ -29,6 +29,8 @@ dependencies {
 
     //모듈
     implementation project(':module-common')
+    implementation project(':module-user')
+    implementation project(':module-product-game-review')
 }
 
 test {

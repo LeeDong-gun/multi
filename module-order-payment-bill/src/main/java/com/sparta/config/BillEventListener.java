@@ -1,8 +1,8 @@
 package com.sparta.config;
 
-import com.sparta.levelup_backend.domain.bill.dto.responseDto.BillCreatedEvent;
-import com.sparta.levelup_backend.domain.bill.dto.responseDto.BillStatusMessageDto;
-import com.sparta.levelup_backend.domain.bill.entity.BillEntity;
+import com.sparta.domain.bill.dto.responseDto.BillCreatedEvent;
+import com.sparta.domain.bill.dto.responseDto.BillStatusMessageDto;
+import com.sparta.domain.bill.entity.BillEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;

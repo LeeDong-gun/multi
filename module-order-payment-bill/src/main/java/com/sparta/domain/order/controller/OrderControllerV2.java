@@ -1,7 +1,7 @@
 package com.sparta.domain.order.controller;
 
 import com.sparta.common.ApiResponse;
-import com.sparta.levelup_backend.config.CustomUserDetails;
+import com.sparta.config.CustomUserDetails;
 import com.sparta.domain.order.dto.requestDto.OrderCreateRequestDto;
 import com.sparta.domain.order.dto.responseDto.OrderResponseDto;
 import com.sparta.domain.order.service.OrderServiceImplV2;
