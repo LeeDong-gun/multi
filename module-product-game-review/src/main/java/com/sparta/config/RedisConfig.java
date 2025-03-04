@@ -1,8 +1,8 @@
-package main.java.com.sparta.levelup_backend.config;
+package com.sparta.config;
 
-import com.sparta.levelup_backend.config.RedisExpireListener;
-import com.sparta.levelup_backend.domain.bill.service.BillStatusSubscriber;
-import com.sparta.levelup_backend.domain.chat.service.RedisSubscriber;
+import com.sparta.config.RedisExpireListener;
+import com.sparta.domain.bill.service.BillStatusSubscriber;
+import com.sparta.domain.chat.service.RedisSubscriber;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;

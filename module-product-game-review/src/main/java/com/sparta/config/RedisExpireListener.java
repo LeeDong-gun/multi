@@ -1,11 +1,11 @@
-package main.java.com.sparta.levelup_backend.config;
+package com.sparta.config;
 
-import com.sparta.levelup_backend.domain.order.entity.OrderEntity;
-import com.sparta.levelup_backend.domain.order.repository.OrderRepository;
-import com.sparta.levelup_backend.domain.product.entity.ProductEntity;
-import com.sparta.levelup_backend.domain.product.repository.ProductRepository;
-import com.sparta.levelup_backend.domain.product.service.ProductServiceImpl;
-import com.sparta.levelup_backend.exception.common.LockException;
+import com.sparta.domain.order.entity.OrderEntity;
+import com.sparta.domain.order.repository.OrderRepository;
+import com.sparta.domain.product.entity.ProductEntity;
+import com.sparta.domain.product.repository.ProductRepository;
+import com.sparta.domain.product.service.ProductServiceImpl;
+import com.sparta.exception.common.LockException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
@@ -16,9 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.sparta.levelup_backend.exception.common.ErrorCode.CONFLICT_LOCK_ERROR;
-import static com.sparta.levelup_backend.exception.common.ErrorCode.CONFLICT_LOCK_GET;
-import static com.sparta.levelup_backend.utill.OrderStatus.PENDING;
+import static com.sparta.exception.common.ErrorCode.CONFLICT_LOCK_ERROR;
+import static com.sparta.exception.common.ErrorCode.CONFLICT_LOCK_GET;
+import static com.sparta.utill.OrderStatus.PENDING;
 
 @Slf4j
 @Component

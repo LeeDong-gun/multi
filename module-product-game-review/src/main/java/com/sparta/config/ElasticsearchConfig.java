@@ -1,4 +1,4 @@
-package main.java.com.sparta.levelup_backend.config;
+package com.sparta.config;
 
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
@@ -19,9 +19,9 @@ import co.elastic.clients.transport.rest_client.RestClientTransport;
 
 @Configuration
 @EnableElasticsearchRepositories(basePackages = { // 레파지토리 생성지(패키지) 넣을 것
-	"com.sparta.levelup_backend.domain.community.repositoryES",
-	"com.sparta.levelup_backend.domain.product.repositoryES",
-	"com.sparta.levelup_backend.domain.review.repositoryES"
+	"com.sparta.domain.community.repositoryES",
+	"com.sparta.domain.product.repositoryES",
+	"com.sparta.domain.review.repositoryES"
 })
 public class ElasticsearchConfig {
 

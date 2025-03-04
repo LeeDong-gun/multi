@@ -1,4 +1,4 @@
-package main.java.com.sparta.levelup_backend.config;
+package com.sparta.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
