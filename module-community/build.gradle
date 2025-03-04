@@ -13,6 +13,16 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
+    // Elasticsearch
+    implementation 'co.elastic.clients:elasticsearch-java:8.17.2'  // 8.x 이상 버전 사용 시
+    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch:3.2.2'
+    implementation 'org.springframework.data:spring-data-elasticsearch:5.4.3'
+
+    // Redis
+    implementation "org.springframework.boot:spring-boot-starter-data-redis"
+    implementation 'org.redisson:redisson-spring-boot-starter:3.23.1'
+
+    // 모듈
     implementation project(':module-common')
 }
 
