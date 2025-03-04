@@ -23,4 +23,5 @@ public interface ProductESRepository
 	List<ProductDocument> findByIsDeletedFalseAndStatus(ProductStatus status);
 
 	List<ProductDocument> findAllByIsDeletedFalseAndStatus(ProductStatus productStatus);
+
 }
