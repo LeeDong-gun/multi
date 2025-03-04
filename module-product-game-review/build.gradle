@@ -36,6 +36,12 @@ dependencies {
     // OpenKoreanText (한국어 NLP 라이브러리)
     implementation 'org.openkoreantext:open-korean-text:2.1.0'
 
+    // Spring Boot Redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // Redis 클라이언트 (Lettuce)
+    implementation 'io.lettuce.core:lettuce-core:6.3.0'
+
     // module
     implementation project(':module-common')
     implementation project(':module-user')

@@ -1,4 +1,4 @@
-package main.java.com.sparta.levelup_backend.config;
+package com.sparta.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
