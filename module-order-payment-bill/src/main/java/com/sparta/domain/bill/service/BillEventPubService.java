@@ -1,14 +1,14 @@
 package com.sparta.domain.bill.service;
 
-import com.sparta.levelup_backend.domain.bill.dto.responseDto.BillCreatedEvent;
-import com.sparta.levelup_backend.domain.bill.entity.BillEntity;
-import com.sparta.levelup_backend.domain.bill.repository.BillRepository;
+import com.sparta.domain.bill.dto.responseDto.BillCreatedEvent;
+import com.sparta.domain.bill.entity.BillEntity;
+import com.sparta.domain.bill.repository.BillRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import static com.sparta.levelup_backend.utill.BillStatus.*;
+import static com.sparta.utill.BillStatus.*;
 
 @Service
 @RequiredArgsConstructor

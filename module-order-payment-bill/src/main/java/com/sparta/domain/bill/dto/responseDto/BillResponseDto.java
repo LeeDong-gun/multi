@@ -1,8 +1,8 @@
 package com.sparta.domain.bill.dto.responseDto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sparta.levelup_backend.domain.bill.entity.BillEntity;
-import com.sparta.levelup_backend.utill.BillStatus;
+import com.sparta.domain.bill.entity.BillEntity;
+import com.sparta.utill.BillStatus;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

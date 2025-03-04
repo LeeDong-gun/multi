@@ -3,8 +3,8 @@ package com.sparta.domain.bill.dto.responseDto;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.nimbusds.jose.shaded.gson.annotations.SerializedName;
-import com.sparta.levelup_backend.utill.BillStatus;
+import com.google.gson.annotations.SerializedName;
+import com.sparta.utill.BillStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

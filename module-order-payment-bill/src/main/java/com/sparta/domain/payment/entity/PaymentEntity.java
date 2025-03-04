@@ -1,7 +1,7 @@
 package com.sparta.domain.payment.entity;
 
-import com.sparta.levelup_backend.domain.order.entity.OrderEntity;
-import com.sparta.levelup_backend.domain.user.entity.UserEntity;
+import com.sparta.domain.order.entity.OrderEntity;
+import com.sparta.domain.user.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
