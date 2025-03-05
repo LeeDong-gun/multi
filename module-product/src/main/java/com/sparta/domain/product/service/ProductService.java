@@ -39,7 +39,5 @@ public interface ProductService {
 	Map<String, Long> getGenreAggregationsES();
 
 	List<ProductDocument> getTop10PopularProductsES();
-
-	List<ProductRequestAllDto> getTop3Products();
 }
 

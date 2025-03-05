@@ -13,6 +13,24 @@ spring:
       hibernate:
         format_sql: true
 
+  data:
+    redis:
+      host: localhost  # Redis 서버 주소
+      port: 6379  # Redis 기본 포트
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 5000
+          starttls:
+            enable: true
+
 management:
   endpoint:
   endpoints:

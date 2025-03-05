@@ -1,5 +1,7 @@
 package com.sparta.domain.review.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 
@@ -13,5 +15,4 @@ public interface ReviewService {
 	void deleteReview(Long userId, Long productId, Long reviewId);
 
 	Slice<ReviewResponseDto> findReviews(Long productId, Pageable pageable);
-
 }

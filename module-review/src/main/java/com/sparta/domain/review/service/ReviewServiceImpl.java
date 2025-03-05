@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sparta.domain.order.repository.OrderRepository;
 import com.sparta.domain.product.entity.ProductEntity;
 import com.sparta.domain.product.repository.ProductRepository;
+import com.sparta.domain.review.repositoryES.ReviewESRepository;
 import com.sparta.domain.review.dto.request.ReviewRequestDto;
 import com.sparta.domain.review.dto.response.ReviewResponseDto;
 import com.sparta.domain.review.entity.ReviewEntity;
@@ -34,6 +35,7 @@ public class ReviewServiceImpl implements ReviewService {
 	private final UserRepository userRepository;
 	private final ProductRepository productRepository;
 	private final OrderRepository orderRepository;
+	private final ReviewESRepository reviewESRepository;
 
 	@Override
 	@Transactional
