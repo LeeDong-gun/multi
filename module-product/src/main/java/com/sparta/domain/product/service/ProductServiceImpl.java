@@ -11,12 +11,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import org.openkoreantext.processor.OpenKoreanTextProcessorJava;
-import org.openkoreantext.processor.tokenizer.KoreanTokenizer;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +21,6 @@ import com.sparta.domain.game.entity.GameEntity;
 import com.sparta.domain.game.repository.GameRepository;
 import com.sparta.domain.product.document.ProductDocument;
 import com.sparta.domain.product.dto.requestDto.ProductCreateRequestDto;
-import com.sparta.domain.product.dto.requestDto.ProductRequestAllDto;
 import com.sparta.domain.product.dto.requestDto.ProductUpdateRequestDto;
 import com.sparta.domain.product.dto.responseDto.ProductCreateResponseDto;
 import com.sparta.domain.product.dto.responseDto.ProductDeleteResponseDto;
@@ -33,8 +29,6 @@ import com.sparta.domain.product.dto.responseDto.ProductUpdateResponseDto;
 import com.sparta.domain.product.entity.ProductEntity;
 import com.sparta.domain.product.repository.ProductRepository;
 import com.sparta.domain.product.repositoryES.ProductESRepository;
-import com.sparta.domain.review.document.ReviewDocument;
-import com.sparta.domain.review.repositoryES.ReviewESRepository;
 import com.sparta.domain.user.entity.UserEntity;
 import com.sparta.domain.user.repository.UserRepository;
 import com.sparta.exception.common.DuplicateException;
@@ -70,7 +64,6 @@ public class ProductServiceImpl implements ProductService {
 	private final ProductESRepository productESRepository;
 	private final ElasticsearchClient elasticsearchClient;
 	private final RedissonClient redissonClient;
-	private final ReviewESRepository reviewESRepository;
 
 	/**
 	 * 모든 활성화된 상품 정보를 조회합니다.
@@ -393,99 +386,6 @@ public class ProductServiceImpl implements ProductService {
 			System.err.println("Elasticsearch Aggregation 실행 중 오류 발생: " + e.getMessage());
 			throw new RuntimeException("Elasticsearch Aggregation 실패", e);
 		}
-	}
-
-	/**
-	 * Product의 평균 감성 점수 계산 후 Elasticsearch에 업데이트
-	 */
-	public void updateProductSentimentScores() {
-		List<ProductDocument> products = productESRepository.findAllByIsDeletedFalseAndStatus(ProductStatus.ACTIVE);
-
-		for (ProductDocument product : products) {
-			List<ReviewDocument> reviews = reviewESRepository.findByProductId(product.getProductId());
-
-			double totalScore = 0.0;
-			int count = 0;
-
-			for (ReviewDocument review : reviews) {
-				double sentimentScore = analyzeSentiment(review.getContents());
-				totalScore += sentimentScore;
-				count++;
-			}
-
-			double averageScore = (count > 0) ? totalScore / count : 0.0;
-
-			try {
-				UpdateResponse<ProductDocument> response = elasticsearchClient.update(UpdateRequest.of(u -> u
-					.index("product")
-					.id(String.valueOf(product.getProductId()))
-					.doc(ProductDocument.builder().sentimentScore(averageScore).build())
-				), ProductDocument.class);
-
-				if (response.result().name().equalsIgnoreCase("not_found")) {
-					System.err.println("ProductDocument not found in Elasticsearch: " + product.getProductId());
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	/**
-	 * 30분마다 상품 감성 분석 점수 업데이트 (자동 실행)
-	 */
-	@Scheduled(cron = "0 */30 * * * *") // 30분마다 실행
-	public void scheduledUpdateProductSentimentScores() {
-		updateProductSentimentScores();
-	}
-
-	/**
-	 * 감성 점수 TOP 3 제품 반환
-	 */
-	public List<ProductRequestAllDto> getTop3Products() {
-		updateProductSentimentScores();
-
-		List<ProductDocument> productList = productESRepository.findAllByIsDeletedFalseAndStatus(ProductStatus.ACTIVE);
-
-		return productList.stream()
-			.sorted(Comparator.comparingDouble(ProductDocument::getSentimentScore).reversed())
-			.limit(3)
-			.map(ProductRequestAllDto::fromDocument)
-			.toList();
-	}
-
-	/**
-	 * 간단한 감성 분석을 수행합니다.
-	 * 토큰화 후 긍정/부정 단어, 부정어, 강조어 등을 분석하여 점수를 계산합니다.
-	 * @param content 리뷰 내용
-	 * @return 감성 점수
-	 */
-	private double analyzeSentiment(String content) {
-		CharSequence normalized = OpenKoreanTextProcessorJava.normalize(content);
-		Seq<KoreanTokenizer.KoreanToken> tokens = OpenKoreanTextProcessorJava.tokenize(normalized);
-		List<KoreanTokenizer.KoreanToken> tokenList = JavaConverters.seqAsJavaList(tokens);
-		List<String> positiveWords = Arrays.asList("좋다", "최고", "만족", "훌륭", "감사");
-		List<String> negativeWords = Arrays.asList("나쁘다", "별로", "실망", "최악", "불만");
-		List<String> negationWords = Arrays.asList("안", "못", "전혀");
-		List<String> intensifiers = Arrays.asList("매우", "아주", "정말");
-		double score = 0.0;
-		for (int i = 0; i < tokenList.size(); i++) {
-			String word = tokenList.get(i).text();
-			boolean isNegated = false;
-			double multiplier = 1.0;
-			if (i > 0 && negationWords.contains(tokenList.get(i - 1).text())) {
-				isNegated = true;
-			}
-			if (i > 0 && intensifiers.contains(tokenList.get(i - 1).text())) {
-				multiplier = 2.0;
-			}
-			if (positiveWords.contains(word)) {
-				score += isNegated ? -1 * multiplier : 1 * multiplier;
-			} else if (negativeWords.contains(word)) {
-				score += isNegated ? 1 * multiplier : -1 * multiplier;
-			}
-		}
-		return score;
 	}
 
 	private boolean isAdmin(Long userId) {
