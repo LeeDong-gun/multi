@@ -76,4 +76,3 @@ public class GameController {
 		return success(OK, GAME_FOUND_SUCCESS, listDto);
 	}
 }
-

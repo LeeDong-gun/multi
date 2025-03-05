@@ -9,8 +9,10 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
+import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -25,12 +27,15 @@ public class RedisConfig {
     @Value("${spring.data.redis.port}")
     private int port;
 
+    @Value("${spring.data.redis.password}")
+    private String redisPassword;
 
     // 포트 설정 (설정 안해도 Spring 기본 제공 포트인 127.0.0.1 6379로 접속)
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         RedisStandaloneConfiguration redisConfiguration = new RedisStandaloneConfiguration(host);
         redisConfiguration.setPort(port);
+        redisConfiguration.setPassword(redisPassword);
         return new LettuceConnectionFactory(redisConfiguration);
     }
 
@@ -50,15 +55,13 @@ public class RedisConfig {
      */
     @Bean
     public RedisMessageListenerContainer redisMessageListenerContainer(
-        RedisConnectionFactory redisConnectionFactory,
-        RedisSubscriber redisSubscriber
+            RedisConnectionFactory redisConnectionFactory,
+            RedisSubscriber redisSubscriber
     ) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(redisConnectionFactory);
         container.addMessageListener(redisSubscriber, new PatternTopic("chatroom:*"));
         return container;
     }
-
-
 
 }
