@@ -42,8 +42,8 @@ dependencies {
     // Spring Boot Redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
-    // Redis 클라이언트 (Lettuce)
-    implementation 'io.lettuce.core:lettuce-core:6.3.0'
+//    // Redis 클라이언트 (Lettuce)
+//    implementation 'io.lettuce.core:lettuce-core:6.3.0'
 
     // module
     implementation project(':module-common')
