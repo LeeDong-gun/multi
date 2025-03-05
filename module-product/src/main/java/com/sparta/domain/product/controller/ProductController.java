@@ -184,16 +184,6 @@ public class ProductController {
 	}
 
 	/**
-	 * 감성 분석 결과 상위 3개 상품 조회 (ES)
-	 * GET /v1/products/es/sentimentanalysis/top3
-	 */
-	@GetMapping("/es/sentimentanalysis/top3")
-	public ApiResponse<List<ProductRequestAllDto>> findTop3Products() {
-		List<ProductRequestAllDto> top3Products = productService.getTop3Products();
-		return ApiResponse.success(OK, PRODUCT_READ, top3Products);
-	}
-
-	/**
 	 * 인기 상품 Top 10 조회 (ES)
 	 * GET /v1/products/es/aggregations/popular
 	 */

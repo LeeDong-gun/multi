@@ -17,7 +17,6 @@ spring:
     redis:
       host: localhost  # Redis 서버 주소
       port: 6379  # Redis 기본 포트
-      password: ${REDIS_PASSWORD:}
 
   mail:
     host: smtp.gmail.com

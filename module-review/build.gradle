@@ -13,11 +13,11 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
-    // QueryDSL 관련 의존성
-    implementation 'com.querydsl:querydsl-jpa:5.0.0'
-    annotationProcessor 'com.querydsl:querydsl-apt:5.0.0:jpa'
-
-    // JPA 관련 API (Spring Boot 3.x 이상은 jakarta.persistence 사용!)
+    // Querydsl 설정 (Spring Boot 3.x 이상 - Jakarta API 사용)
+    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+    annotationProcessor 'com.querydsl:querydsl-apt:5.0.0:jakarta'
+    annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
+    annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
     implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
     annotationProcessor 'jakarta.persistence:jakarta.persistence-api:3.1.0'
 
