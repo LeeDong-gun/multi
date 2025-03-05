@@ -13,7 +13,7 @@ spring:
             enable: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/order
+    url: jdbc:mysql://localhost:3306/common
     username: ${LOCAL_DB_USERNAME}
     password: ${LOCAL_DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -23,6 +23,12 @@ spring:
     username: ${ELASTICSEARCH_USERNAME}
     password: ${ELASTICSEARCH_PASSWORD}
 
+  data:
+    redis:
+      host: ${LOCAL_REDIS_HOST}
+      port: ${REDIS_PORT}
+      password: ${REDIS_PASSWORD}
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -30,19 +36,3 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-  data:
-    redis:
-      host: ${LOCAL_REDIS_HOST}
-      port: ${REDIS_PORT}
-      password: ${REDIS_PASSWORD}
-
-toss:
-  client:
-    key: ${TOSS_CLIENT_KEY}
-  secret:
-    key: ${TOSS_SECRET_KEY}
-  success:
-    Url: http://localhost:8080/payment/success.html
-  fail:
-    Url: http://localhost:8080/fail.html

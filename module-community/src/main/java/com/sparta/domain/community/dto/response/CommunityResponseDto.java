@@ -1,9 +1,9 @@
 package com.sparta.domain.community.dto.response;
 
-import com.sparta.levelup_backend.domain.community.document.CommunityDocument;
-import com.sparta.levelup_backend.domain.community.entity.CommunityEntity;
-import com.sparta.levelup_backend.domain.game.entity.GameEntity;
-import com.sparta.levelup_backend.domain.user.entity.UserEntity;
+import com.sparta.domain.community.document.CommunityDocument;
+import com.sparta.domain.community.entity.CommunityEntity;
+import com.sparta.domain.game.entity.GameEntity;
+import com.sparta.domain.user.entity.UserEntity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

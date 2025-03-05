@@ -27,7 +27,8 @@ dependencies {
 
     // 모듈
     implementation project(':module-common')
-    implementation project(':module-order-payment-bill')
+    implementation project(':module-game')
+    implementation project(':module-user')
 }
 
 test {
