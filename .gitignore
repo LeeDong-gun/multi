@@ -38,3 +38,9 @@ out/
 
 docker-compose.yml
 *.env
+
+# MySQL 데이터 디렉터리 제외
+db/mysql/data/
+
+# MySQL 소켓 파일 제외
+db/mysql/data/mysql.sock

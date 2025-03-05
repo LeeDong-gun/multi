@@ -44,6 +44,9 @@ dependencies {
 
     // module
     implementation project(':module-common')
+    implementation project(':module-game')
+    implementation project(':module-user')
+    implementation project(':module-order-payment-bill')
 }
 
 test {
