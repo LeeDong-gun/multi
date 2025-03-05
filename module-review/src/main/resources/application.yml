@@ -1,6 +1,19 @@
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 5000
+          starttls:
+            enable: true
+
   datasource:
-    url: jdbc:mysql://localhost:3306/review
+    url: jdbc:mysql://localhost:3306/game
     username: ${LOCAL_DB_USERNAME}
     password: ${LOCAL_DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -13,10 +26,8 @@ spring:
       hibernate:
         format_sql: true
 
-management:
-  endpoint:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
+  data:
+    redis:
+      host: ${LOCAL_REDIS_HOST}
+      port: ${REDIS_PORT}
+      password: ${REDIS_PASSWORD}

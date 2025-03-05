@@ -5,6 +5,9 @@ plugins {
 group = 'com.sparta'
 version = 'unspecified'
 
+bootJar.enabled = true
+jar.enabled = true
+
 repositories {
     mavenCentral()
 }

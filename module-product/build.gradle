@@ -5,6 +5,9 @@ plugins {
 group = 'com.sparta'
 version = 'unspecified'
 
+bootJar.enabled = true
+jar.enabled = true
+
 repositories {
     mavenCentral()
 }
@@ -46,7 +49,6 @@ dependencies {
     implementation project(':module-common')
     implementation project(':module-game')
     implementation project(':module-user')
-    implementation project(':module-order-payment-bill')
 }
 
 test {
