@@ -47,6 +47,13 @@ subprojects { // 모든 하위 모듈들에 이 설정을 적용합니다.
         // mysql
         runtimeOnly 'com.mysql:mysql-connector-j'
 
+        // Querydsl 설정 (Spring Boot 3.x 이상 - Jakarta API 사용)
+        implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+        annotationProcessor 'com.querydsl:querydsl-apt:5.0.0:jakarta'
+        annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
+        implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+        annotationProcessor 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+
         // lombok
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
